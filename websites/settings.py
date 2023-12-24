@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-a1v*f0ub&gdkap8&83mkizp@q#lb(1)l!m21up$tt2s=3)cjt0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://query-subtitle.azurewebsites.net/']
 
 CELERY_TIMEZONE = "Asia/Kolkata"
 CELERY_TASK_TRACK_STARTED = True
