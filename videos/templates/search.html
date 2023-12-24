@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="input-group mx-auto" style="width: 550px;">
+
+  <div class="col-md-6 offset-md-3">
+    {% if submitted %}
+    Your Video was uploaded Succefully!!!
+
+    {% endif %}
+  </div>
+  <br>
+
+  {% if messages %}
+  <ul class="messages">
+      {% for message in messages %}
+      <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+      {% endfor %}
+  </ul>
+  {% endif %}
+
+    <form enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+
+        <div class="input-group mb-3">
+
+        {{ form.as_p }}
+        <!-- show errors in the uploaded file -->
+        {{ form.file.errors }}
+    
+        <div class="text=red-500", {{ form.file.errors }}></div>
+      </div>
+
+        <input type="submit" value="Search" class="btn btn-secondary">
+
+
+    <!-- <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"> -->
+    </form>
+</div>
+    
+{% endblock %}
+

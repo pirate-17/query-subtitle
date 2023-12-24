@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="col-md-6 offset-md-3">
+    Upload video -> Get subtitles
+  </div>
+  <br>
+  {% if submitted %}
+      Your video was uploaded successfully!!
+
+  {% else %}
+
+  <div class="input-group mx-auto" style="width: 550px;">
+
+    <form enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+
+        <div class="input-group mb-3">
+
+        {{ form.as_p }}
+        <!-- show errors in the uploaded file -->
+        {{ form.file.errors }}
+        <div class="text=red-500", {{ form.file.errors }}></div>
+      </div>
+
+        <!-- <div class="input-group mb-3">
+          <input type="file" class="form-control" name="my_files">
+        </div> -->
+        <input type="submit" value="Upload" class="btn btn-secondary">
+
+       
+
+    </form>
+  </div>
+
+  {% endif %}
+    
+{% endblock %}
